@@ -8,6 +8,13 @@
 
 #import "PZXCollectionViewFlowLayout.h"
 
+#define SCREENWIDTH [[UIScreen mainScreen]bounds].size.width
+#define SCREENHTIGHT [[UIScreen mainScreen]bounds].size.height
+#define kTabBarHeight ([[UIApplication sharedApplication] statusBarFrame].size.height>20?83:49)
+#define kStatusBarHeight [[UIApplication sharedApplication] statusBarFrame].size.height
+#define kNavBarHeight 44.0
+#define kTopHeight (kStatusBarHeight + kNavBarHeight)
+
 
 @interface PZXCollectionViewFlowLayout ()
 
@@ -36,6 +43,10 @@
     
     [super prepareLayout];
 
+    ///这里设置Item的宽高
+    ///有几种用法，
+    ///1.直接设置宽高，在Cell内布局
+    ///2.设置为屏幕宽高，然后在Cell中心放一个View在View里布局
     self.itemSize = CGSizeMake(160, 240);
 //    self.minimumInteritemSpacing = 30;
     self.minimumLineSpacing = 30;
