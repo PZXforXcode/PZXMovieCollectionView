@@ -61,7 +61,7 @@
 -(NSArray<__kindof UICollectionViewLayoutAttributes *> *)layoutAttributesForElementsInRect:(CGRect)rect{
         
     // 1.1拿到系统已经算好的布局.
-    NSArray *attributes = [super layoutAttributesForElementsInRect:rect];
+    NSArray *attributes = [self deepCopyWithArray:[super layoutAttributesForElementsInRect:rect]];
     // 1.2 计算当前collectionView的中间位置的x值
     CGFloat currentCenterX = self.collectionView.contentOffset.x + self.collectionView.bounds.size.width / 2.0;
     // 1.3遍历当前rect内所有layoutAttributes,计算它跟currentCenterX的距离,距离越远,计算出的缩放值越小,再赋值给layoutAttributes
